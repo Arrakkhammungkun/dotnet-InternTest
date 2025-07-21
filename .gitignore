@@ -1,0 +1,11 @@
+# SQLite database
+MyTestDb.db
+
+# .NET build outputs
+bin/
+obj/
+
+# Visual Studio cache
+.vs/
+*.user
+*.suo
