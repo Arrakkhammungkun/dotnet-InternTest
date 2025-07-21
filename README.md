@@ -133,153 +133,20 @@ Response (HTTP 200 OK):[
 
 
 
-GET /api/User/{id}
-
-คำอธิบาย: ดึงข้อมูลผู้ใช้ตาม ID.
-Parameter: id (integer, required).
-ตัวอย่าง Request: GET /api/User/51
-ตัวอย่าง Response (HTTP 200 OK):{
-  "userId": 51,
-  "firstName": "Jane",
-  "lastName": "Smith",
-  "email": "jane.smith@example.com",
-  "phone": "0987654321",
-  "isAdmin": true,
-  "createdAt": "2025-07-22T01:04:00Z"
-}
 
 
 
-2. Equipment API
-จัดการข้อมูลอุปกรณ์ (Equipments).
-POST /api/Equipment
-
-คำอธิบาย: สร้างอุปกรณ์ใหม่.
-Parameters (JSON body):
-name (string, required): ชื่ออุปกรณ์.
-description (string, required): รายละเอียด.
-status (string, required): สถานะ (เช่น Available, Unavailable).
-
-
-ตัวอย่าง Request:{
-  "name": "Laptop",
-  "description": "Dell XPS 13",
-  "status": "Available"
-}
-
-
-ตัวอย่าง Response (HTTP 201 Created):{
-  "equipmentId": 1,
-  "name": "Laptop",
-  "description": "Dell XPS 13",
-  "status": "Available",
-  "createdAt": "2025-07-22T01:04:00Z"
-}
 
 
 
-GET /api/Equipment
-
-คำอธิบาย: ดึงข้อมูลอุปกรณ์ทั้งหมด.
-Response (HTTP 200 OK):[
-  {
-    "equipmentId": 1,
-    "name": "Laptop",
-    "description": "Dell XPS 13",
-    "status": "Available",
-    "createdAt": "2025-07-22T01:04:00Z"
-  },
-  ...
-]
 
 
 
-3. Borrowing API
-จัดการข้อมูลการยืม (Borrowings).
-POST /api/Borrowing
-
-คำอธิบาย: สร้างบันทึกการยืมใหม่.
-Parameters (JSON body):
-userId (integer, required): ID ผู้ใช้.
-borrowDate (string, required): วันที่ยืม (ISO 8601).
-returnDate (string, optional): วันที่คืน.
-
-
-ตัวอย่าง Request:{
-  "userId": 51,
-  "borrowDate": "2025-07-22T01:04:00Z",
-  "returnDate": null
-}
-
-
-ตัวอย่าง Response (HTTP 201 Created):{
-  "borrowingId": 1,
-  "userId": 51,
-  "borrowDate": "2025-07-22T01:04:00Z",
-  "returnDate": null,
-  "createdAt": "2025-07-22T01:04:00Z"
-}
 
 
 
-GET /api/Borrowing
-
-คำอธิบาย: ดึงข้อมูลการยืมทั้งหมด.
-Response (HTTP 200 OK):[
-  {
-    "borrowingId": 1,
-    "userId": 51,
-    "borrowDate": "2025-07-22T01:04:00Z",
-    "returnDate": null,
-    "createdAt": "2025-07-22T01:04:00Z"
-  },
-  ...
-]
 
 
-
-4. Borrowing_Detail API
-จัดการรายละเอียดการยืม (Borrowing_Details).
-POST /api/BorrowingDetail
-
-คำอธิบาย: สร้างรายละเอียดการยืม (เชื่อม Borrowing กับ Equipment).
-Parameters (JSON body):
-borrowingId (integer, required): ID การยืม.
-equipmentId (integer, required): ID อุปกรณ์.
-quantity (integer, required): จำนวน.
-
-
-ตัวอย่าง Request:{
-  "borrowingId": 1,
-  "equipmentId": 1,
-  "quantity": 2
-}
-
-
-ตัวอย่าง Response (HTTP 201 Created):{
-  "borrowingId": 1,
-  "equipmentId": 1,
-  "quantity": 2,
-  "createdAt": "2025-07-22T01:04:00Z"
-}
-
-
-
-GET /api/BorrowingDetail/{borrowingId}/{equipmentId}
-
-คำอธิบาย: ดึงรายละเอียดการยืมตาม ID.
-Parameters:
-borrowingId (integer, required).
-equipmentId (integer, required).
-
-
-ตัวอย่าง Request: GET /api/BorrowingDetail/1/1
-ตัวอย่าง Response (HTTP 200 OK):{
-  "borrowingId": 1,
-  "equipmentId": 1,
-  "quantity": 2,
-  "createdAt": "2025-07-22T01:04:00Z"
-}
 
 
 
