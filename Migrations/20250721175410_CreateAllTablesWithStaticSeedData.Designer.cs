@@ -11,7 +11,7 @@ using MyApiProject.Data;
 namespace MyApiProject.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250720064856_CreateAllTablesWithStaticSeedData")]
+    [Migration("20250721175410_CreateAllTablesWithStaticSeedData")]
     partial class CreateAllTablesWithStaticSeedData
     {
         /// <inheritdoc />
